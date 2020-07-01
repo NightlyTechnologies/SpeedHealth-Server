@@ -1,1 +1,1 @@
-yarn build && node dist/server.js
+yarn build
