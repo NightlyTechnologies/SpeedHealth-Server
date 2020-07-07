@@ -23,7 +23,7 @@ services:
       POSTGRESQL_USER: server
       POSTGRESQL_DB: serverdb
     ports:
-      - 5434:5434
+      - 5432:5432
 
 networks:
   server:
