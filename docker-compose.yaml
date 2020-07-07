@@ -14,16 +14,19 @@ services:
       - server
 
   postgres:
+    container_name: postgres
     image: postgres
     restart: always
     volumes:
       - pgsql:/var/lib/postgresql/data
     environment:
-      POSTGRESQL_PASSWORD: server
-      POSTGRESQL_USER: server
-      POSTGRESQL_DB: serverdb
+      POSTGRES_PASSWORD: server
+      POSTGRES_USER: server
+      POSTGRES_DB: serverdb
     ports:
       - 5432:5432
+    networks:
+      - server
 
 networks:
   server:
