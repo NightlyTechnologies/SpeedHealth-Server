@@ -9,17 +9,17 @@
    "synchronize": true,
    "logging": false,
    "entities": [
-      "src/entity/**/*.ts"
+      "src/modules/**/infra/typeorm/entities/*.ts"
    ],
    "migrations": [
-      "src/migration/**/*.ts"
+      "src/shared/infra/typeorm/migrations/*.ts"
    ],
    "subscribers": [
-      "src/subscriber/**/*.ts"
+      "src/shared/infra/typeorm/subscribers/*.ts"
    ],
    "cli": {
-      "entitiesDir": "src/entity",
-      "migrationsDir": "src/migration",
-      "subscribersDir": "src/subscriber"
+      "entitiesDir": "src/modules/**/infra/typeorm/entities",
+      "migrationsDir": "src/shared/infra/typeorm/migrations",
+      "subscribersDir": "src/shared/infra/typeorm/subscribers"
    }
 }

@@ -4,9 +4,9 @@
    "main": "server.js",
    "license": "MIT",
    "scripts": {
-      "start": "node dist/server.js",
+      "start": "node dist/shared/infra/http/server.js",
       "build": "yarn tsc",
-      "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
+      "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/shared/infra/http/server.ts",
       "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
    },
    "dependencies": {
