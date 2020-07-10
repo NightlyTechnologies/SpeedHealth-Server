@@ -20,10 +20,7 @@ export default class CreatePharmacys1594154634160 implements MigrationInterface 
           {
             name: 'email',
             type: 'varchar',
-          },
-          {
-            name: 'cnpj',
-            type: 'int',
+            isUnique: true,
           },
           {
             name: 'password',
@@ -42,8 +39,34 @@ export default class CreatePharmacys1594154634160 implements MigrationInterface 
             type: 'varchar',
           },
           {
+            name: 'cnpj',
+            type: 'int',
+            isUnique: true,
+          },
+          {
             name: 'description',
             type: 'varchar',
+            isNullable: true,
+          },
+          {
+            name: 'image_url',
+            type: 'varchar',
+            isNullable: true,
+            default: "'http://lorempixel.com/300/300?'",
+          },
+          {
+            name: 'geolocation',
+            type: 'point',
+          },
+          {
+            name: 'created_at',
+            type: 'timestamp',
+            default: 'now()',
+          },
+          {
+            name: 'updated_at',
+            type: 'timestamp',
+            default: 'now()',
           },
         ],
       }),

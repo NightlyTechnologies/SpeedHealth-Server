@@ -14,9 +14,6 @@ class Pharmacy {
   email: string;
 
   @Column()
-  cnpj: number;
-
-  @Column()
   password: string;
 
   @Column()
@@ -29,7 +26,16 @@ class Pharmacy {
   uf: string;
 
   @Column()
+  cnpj: number;
+
+  @Column()
   description: string;
+
+  @Column()
+  image_url: string;
+
+  @Column('point')
+  geolocation: [number, number];
 
   @CreateDateColumn()
   created_at: Date;
