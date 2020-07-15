@@ -6,6 +6,5 @@ export default interface ICreatePharmacyDTO {
   city: string;
   uf: string;
   cnpj: number;
-  latitude: number;
-  longitude: number;
+  geolocation: [number, number];
 }

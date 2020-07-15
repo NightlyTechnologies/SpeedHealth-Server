@@ -13,8 +13,7 @@ export default class PharmacyController {
       city,
       uf,
       cnpj,
-      latitude,
-      longitude,
+      geolocation,
     } = request.body;
 
     const pharmacyData = {
@@ -25,8 +24,7 @@ export default class PharmacyController {
       city,
       uf,
       cnpj,
-      latitude,
-      longitude,
+      geolocation,
     };
 
     const createPharmacy = container.resolve(CreatePharmacyService);
