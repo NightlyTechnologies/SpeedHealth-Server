@@ -7,13 +7,12 @@
     "start": "node dist/shared/infra/http/server.js",
     "build": "yarn tsc",
     "dev": "ts-node-dev -r tsconfig-paths/register --transpile-only --ignore-watch node_modules src/shared/infra/http/server.ts",
-    "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "typeorm": "docker exec server yarn ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
     "test": "jest",
     "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "express": "^4.17.1",
-    "mysql": "^2.14.1",
     "pg": "^8.2.2",
     "reflect-metadata": "^0.1.13",
     "typeorm": "0.2.25"

@@ -1,25 +1,18 @@
 {
   "name": "default",
   "type": "postgres",
-   "host": "localhost",
-   "port": 5432,
-   "username": "server",
-   "password": "server",
-   "database": "serverdb",
-   "synchronize": true,
-   "logging": false,
-   "entities": [
-      "src/modules/**/infra/typeorm/entities/*.ts"
-   ],
-   "migrations": [
-      "src/shared/infra/typeorm/migrations/*.ts"
-   ],
-   "subscribers": [
-      "src/shared/infra/typeorm/subscribers/*.ts"
-   ],
-   "cli": {
-      "entitiesDir": "src/modules/**/infra/typeorm/entities",
-      "migrationsDir": "src/shared/infra/typeorm/migrations",
-      "subscribersDir": "src/shared/infra/typeorm/subscribers"
-   }
+  "host": "postgres",
+  "port": 5432,
+  "username": "server",
+  "password": "server",
+  "database": "serverdb",
+  "entities": [
+    "./src/modules/**/infra/typeorm/entities/*.ts"
+  ],
+  "migrations": [
+    "./src/shared/infra/typeorm/migrations/*.ts"
+  ],
+  "cli": {
+    "migrationsDir": "./src/shared/infra/typeorm/migrations"
+  }
 }
