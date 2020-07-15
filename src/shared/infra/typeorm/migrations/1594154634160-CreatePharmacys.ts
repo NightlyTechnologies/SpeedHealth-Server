@@ -55,8 +55,16 @@ export default class CreatePharmacys1594154634160 implements MigrationInterface 
             default: "'http://lorempixel.com/300/300?'",
           },
           {
-            name: 'geolocation',
-            type: 'point',
+            name: 'latitude',
+            type: 'decimal',
+            precision: 9,
+            scale: 6,
+          },
+          {
+            name: 'longitude',
+            type: 'decimal',
+            precision: 9,
+            scale: 6,
           },
           {
             name: 'created_at',
