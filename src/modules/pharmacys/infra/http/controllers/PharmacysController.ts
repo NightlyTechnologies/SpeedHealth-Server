@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import Test from '../../../services/Test';
+import Test from '@modules/pharmacys/services/Test';
 
 const test = new Test();
 
