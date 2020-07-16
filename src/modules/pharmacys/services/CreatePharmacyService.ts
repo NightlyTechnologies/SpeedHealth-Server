@@ -21,6 +21,12 @@ class CreatePharmacyService {
       throw new AppError('Email address already used.');
     }
 
+    const cnpjUsed = await this.pharmacysRepository.findByCNPJ(data.cnpj);
+
+    if (cnpjUsed) {
+      throw new AppError('Cnpj already registered');
+    }
+
     const pharmacy = await this.pharmacysRepository.create(data);
 
     return pharmacy;

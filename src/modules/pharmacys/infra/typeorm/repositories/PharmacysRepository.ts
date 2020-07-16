@@ -28,6 +28,13 @@ class PharmacysRepository implements IPharmacysRepository {
     return pharmacy;
   }
 
+  public async findByCNPJ(cnpj:number): Promise<Pharmacy | undefined> {
+    const pharmacy = await this.ormRepository.findOne({
+      where: { cnpj },
+    });
+
+    return pharmacy;
+  }
 }
 
 export default PharmacysRepository;
