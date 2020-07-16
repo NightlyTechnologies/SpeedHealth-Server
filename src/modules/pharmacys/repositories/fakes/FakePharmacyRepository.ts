@@ -28,6 +28,18 @@ class FakePharmacysRepository implements IPharmacysRepository {
 
     return pharmacy;
   }
+
+  public async findByEmail(email:string): Promise<Pharmacy | undefined> {
+    const findPharmacy = this.pharmacys.find((pharmacy) => pharmacy.email === email);
+
+    return findPharmacy;
+  }
+
+  public async findByCNPJ(cnpj:number): Promise<Pharmacy | undefined> {
+    const findPharmacy = this.pharmacys.find((pharmacy) => pharmacy.cnpj === cnpj);
+
+    return findPharmacy;
+  }
 }
 
 export default FakePharmacysRepository;
