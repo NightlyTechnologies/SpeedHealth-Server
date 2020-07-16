@@ -19,6 +19,15 @@ class PharmacysRepository implements IPharmacysRepository {
 
     return pharmacy;
   }
+
+  public async findByEmail(email:string): Promise<Pharmacy | undefined> {
+    const pharmacy = await this.ormRepository.findOne({
+      where: { email },
+    });
+
+    return pharmacy;
+  }
+
 }
 
 export default PharmacysRepository;
