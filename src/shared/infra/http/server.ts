@@ -7,6 +7,7 @@ import 'express-async-errors';
 import AppError from '@shared/errors/AppError';
 import routes from './routes';
 
+import '@shared/container';
 import '@shared/infra/typeorm';
 import '@shared/container';
 

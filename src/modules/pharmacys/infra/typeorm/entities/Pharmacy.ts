@@ -34,7 +34,7 @@ class Pharmacy {
   @Column()
   image_url: string;
 
-  @Column('point')
+  @Column('simple-array')
   geolocation: [number, number];
 
   @CreateDateColumn()
