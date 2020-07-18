@@ -9,7 +9,7 @@ class PharmacysRepository implements IPharmacysRepository {
   private ormRepository: Repository<Pharmacy>;
 
   constructor() {
-    this.ormRepository = getRepository(Pharmacy);
+    this.ormRepository = getRepository(Pharmacy, process.env.CONNECTION_NAME);
   }
 
   public async create(data: ICreatePharmacyDTO): Promise<Pharmacy> {
