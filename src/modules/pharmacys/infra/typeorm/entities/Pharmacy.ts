@@ -1,6 +1,12 @@
 import {
-  Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn,
 } from 'typeorm';
+
+import { Exclude } from 'class-transformer';
 
 @Entity('pharmacys')
 class Pharmacy {
@@ -14,6 +20,7 @@ class Pharmacy {
   email: string;
 
   @Column()
+  @Exclude()
   password: string;
 
   @Column()
