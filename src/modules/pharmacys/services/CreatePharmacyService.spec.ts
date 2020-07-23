@@ -1,15 +1,21 @@
 import FakePharmacyRepository from '@modules/pharmacys/repositories/fakes/FakePharmacyRepository';
-
+import FakeHashProvider from '@modules/pharmacys/providers/HashProvider/fakes/FakeHashProvider';
 import AppError from '@shared/errors/AppError';
+
 import CreatePharmacyService from './CreatePharmacyService';
 
 let fakePharmacyRepository: FakePharmacyRepository;
+let fakeHashProvider: FakeHashProvider;
 let createPharmacyService: CreatePharmacyService;
 
 describe('CreatePharmacyService', () => {
   beforeEach(() => {
     fakePharmacyRepository = new FakePharmacyRepository();
-    createPharmacyService = new CreatePharmacyService(fakePharmacyRepository);
+    fakeHashProvider = new FakeHashProvider();
+    createPharmacyService = new CreatePharmacyService(
+      fakePharmacyRepository,
+      fakeHashProvider,
+    );
   });
 
   it('should be able to create a new pharmacy', async () => {
