@@ -21,7 +21,15 @@ class FakePharmacysRepository implements IPharmacysRepository {
     const pharmacy = new Pharmacy();
 
     Object.assign(pharmacy, {
-      id: uuid(), name, email, password, whatsapp, city, uf, cnpj, geolocation,
+      id: uuid(),
+      name,
+      email,
+      password,
+      whatsapp,
+      city,
+      uf,
+      cnpj,
+      geolocation,
     });
 
     this.pharmacys.push(pharmacy);
@@ -29,14 +37,18 @@ class FakePharmacysRepository implements IPharmacysRepository {
     return pharmacy;
   }
 
-  public async findByEmail(email:string): Promise<Pharmacy | undefined> {
-    const findPharmacy = this.pharmacys.find((pharmacy) => pharmacy.email === email);
+  public async findByEmail(email: string): Promise<Pharmacy | undefined> {
+    const findPharmacy = this.pharmacys.find(
+      (pharmacy) => pharmacy.email === email,
+    );
 
     return findPharmacy;
   }
 
-  public async findByCNPJ(cnpj:number): Promise<Pharmacy | undefined> {
-    const findPharmacy = this.pharmacys.find((pharmacy) => pharmacy.cnpj === cnpj);
+  public async findByCNPJ(cnpj: number): Promise<Pharmacy | undefined> {
+    const findPharmacy = this.pharmacys.find(
+      (pharmacy) => pharmacy.cnpj === cnpj,
+    );
 
     return findPharmacy;
   }

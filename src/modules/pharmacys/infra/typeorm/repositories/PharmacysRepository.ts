@@ -20,7 +20,7 @@ class PharmacysRepository implements IPharmacysRepository {
     return pharmacy;
   }
 
-  public async findByEmail(email:string): Promise<Pharmacy | undefined> {
+  public async findByEmail(email: string): Promise<Pharmacy | undefined> {
     const pharmacy = await this.ormRepository.findOne({
       where: { email },
     });
@@ -28,7 +28,7 @@ class PharmacysRepository implements IPharmacysRepository {
     return pharmacy;
   }
 
-  public async findByCNPJ(cnpj:number): Promise<Pharmacy | undefined> {
+  public async findByCNPJ(cnpj: number): Promise<Pharmacy | undefined> {
     const pharmacy = await this.ormRepository.findOne({
       where: { cnpj },
     });
