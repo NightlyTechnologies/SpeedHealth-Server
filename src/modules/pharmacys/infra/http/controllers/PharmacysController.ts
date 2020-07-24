@@ -3,8 +3,17 @@ import { container } from 'tsyringe';
 import { classToClass } from 'class-transformer';
 
 import CreatePharmacyService from '@modules/pharmacys/services/CreatePharmacyService';
+import ListAllPharmacysService from '@modules/pharmacys/services/ListAllPharmacysService';
 
 export default class PharmacyController {
+  public async index(_request: Request, response: Response): Promise<Response> {
+    const listPharmacys = container.resolve(ListAllPharmacysService);
+
+    const pharmacys = await listPharmacys.execute();
+
+    return response.json(classToClass(pharmacys));
+  }
+
   public async create(request: Request, response: Response): Promise<Response> {
     const {
       name,

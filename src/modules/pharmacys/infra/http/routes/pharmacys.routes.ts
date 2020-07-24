@@ -25,4 +25,6 @@ router.post(
   pharmacysController.create,
 );
 
+router.get('/', ensureAuthenticated, pharmacysController.index);
+
 export default router;
