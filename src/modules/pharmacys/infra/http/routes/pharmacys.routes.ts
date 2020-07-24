@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { celebrate, Segments, Joi } from 'celebrate';
 
 import PharmacysController from '../controllers/PharmacysController';
+import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 
 const router = Router();
 
