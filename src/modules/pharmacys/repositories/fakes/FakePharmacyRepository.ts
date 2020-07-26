@@ -52,6 +52,10 @@ class FakePharmacysRepository implements IPharmacysRepository {
 
     return findPharmacy;
   }
+
+  public async findAll(): Promise<Pharmacy[]> {
+    return this.pharmacys;
+  }
 }
 
 export default FakePharmacysRepository;
