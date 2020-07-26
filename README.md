@@ -19,11 +19,11 @@
 
 1 - Install dependencies with ```yarn``` or ```npm i```.
 
-2 - Rename files with _.example_ extension, as _.env.example_ and _ormconfig.example.yml_.
+2 - Rename files with _.example_ extension, as _.env.example_ and _ormconfig.example.js_.
 
 3 - Change environment variables of .env file for your use.
 
-4 - Configure _ormconfig.yml_ to connect with your postgres instance. [Help](https://github.com/typeorm/typeorm/blob/master/docs/using-ormconfig.md#using-ormconfigyml)
+4 - Configure _ormconfig.yml_ to connect with your postgres instance. [Help](https://github.com/typeorm/typeorm/blob/master/docs/using-ormconfig.md#using-ormconfigjs)
 
 5 - Run [migrations](https://github.com/SpeedHealth/Server#migrations).
 
