@@ -3,6 +3,7 @@ import { getRepository, Repository } from 'typeorm';
 import IPharmacysRepository from '@modules/pharmacys/repositories/IPharmacysRepository';
 import ICreatePharmacyDTO from '@modules/pharmacys/dtos/ICreatePharmacyDTO';
 
+import IUpdatePharmacyDTO from '@modules/pharmacys/dtos/IUpdatePharmacyDTO';
 import Pharmacy from '../entities/Pharmacy';
 
 class PharmacysRepository implements IPharmacysRepository {
@@ -14,6 +15,35 @@ class PharmacysRepository implements IPharmacysRepository {
 
   public async create(data: ICreatePharmacyDTO): Promise<Pharmacy> {
     const pharmacy = this.ormRepository.create(data);
+
+    await this.ormRepository.save(pharmacy);
+
+    return pharmacy;
+  }
+
+  public async update({
+    id,
+    name,
+    email,
+    whatsapp,
+    city,
+    uf,
+    cnpj,
+    geolocation,
+  }: IUpdatePharmacyDTO): Promise<Pharmacy> {
+    const pharmacy = await this.ormRepository.findOne(id);
+
+    if (!pharmacy) {
+      throw new Error('Pharmacy not Found');
+    }
+
+    pharmacy.name = name;
+    pharmacy.email = email;
+    pharmacy.whatsapp = whatsapp;
+    pharmacy.city = city;
+    pharmacy.uf = uf;
+    pharmacy.cnpj = cnpj;
+    pharmacy.geolocation = geolocation;
 
     await this.ormRepository.save(pharmacy);
 
