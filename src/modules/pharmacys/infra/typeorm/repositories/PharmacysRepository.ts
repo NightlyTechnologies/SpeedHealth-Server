@@ -21,29 +21,14 @@ class PharmacysRepository implements IPharmacysRepository {
     return pharmacy;
   }
 
-  public async update({
-    id,
-    name,
-    email,
-    whatsapp,
-    city,
-    uf,
-    cnpj,
-    geolocation,
-  }: IUpdatePharmacyDTO): Promise<Pharmacy> {
-    const pharmacy = await this.ormRepository.findOne(id);
+  public async update(pharma: IUpdatePharmacyDTO): Promise<Pharmacy> {
+    let pharmacy = await this.ormRepository.findOne(pharma.id);
 
     if (!pharmacy) {
       throw new Error('Pharmacy not Found');
     }
 
-    pharmacy.name = name;
-    pharmacy.email = email;
-    pharmacy.whatsapp = whatsapp;
-    pharmacy.city = city;
-    pharmacy.uf = uf;
-    pharmacy.cnpj = cnpj;
-    pharmacy.geolocation = geolocation;
+    pharmacy = { ...pharmacy, ...pharma };
 
     await this.ormRepository.save(pharmacy);
 
