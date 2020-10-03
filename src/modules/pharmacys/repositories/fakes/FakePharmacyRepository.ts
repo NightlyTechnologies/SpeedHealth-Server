@@ -4,6 +4,7 @@ import IPharmacysRepository from '@modules/pharmacys/repositories/IPharmacysRepo
 import ICreatePharmacyDTO from '@modules/pharmacys/dtos/ICreatePharmacyDTO';
 
 import Pharmacy from '@modules/pharmacys/infra/typeorm/entities/Pharmacy';
+import IUpdatePharmacyDTO from '@modules/pharmacys/dtos/IUpdatePharmacyDTO';
 
 class FakePharmacysRepository implements IPharmacysRepository {
   private pharmacys: Pharmacy[] = [];
@@ -35,6 +36,33 @@ class FakePharmacysRepository implements IPharmacysRepository {
     this.pharmacys.push(pharmacy);
 
     return pharmacy;
+  }
+
+  public async update({
+    id,
+    name,
+    email,
+    whatsapp,
+    city,
+    uf,
+    cnpj,
+    geolocation,
+  }: IUpdatePharmacyDTO): Promise<Pharmacy> {
+    const oldPharmacy = this.pharmacys.find((pharmacy) => pharmacy.id === id);
+
+    if (!oldPharmacy) {
+      throw new Error('Pharmacy not found');
+    }
+
+    oldPharmacy.name = name;
+    oldPharmacy.email = email;
+    oldPharmacy.whatsapp = whatsapp;
+    oldPharmacy.city = city;
+    oldPharmacy.uf = uf;
+    oldPharmacy.cnpj = cnpj;
+    oldPharmacy.geolocation = geolocation;
+
+    return oldPharmacy;
   }
 
   public async findByEmail(email: string): Promise<Pharmacy | undefined> {
